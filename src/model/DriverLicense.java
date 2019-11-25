@@ -2,15 +2,15 @@ package model;
 
 import java.util.Date;
 
-public class Document {
+public class DriverLicense {
 
     private int number;
-    private Date dateOfIssue;//дата выдачи
+    private Date dateOfIssue;
 
-    public Document() {
+    public DriverLicense() {
     }
 
-    public Document(int number, Date dateOfIssue) {
+    public DriverLicense(int number, Date dateOfIssue) {
         this.number = number;
         this.dateOfIssue = dateOfIssue;
     }

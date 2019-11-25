@@ -5,7 +5,7 @@ public class Client extends Person {
     public Client() {
     }
 
-    public Client(String name, long phoneNumber) {
+    public Client(String name, String phoneNumber) {
         super(name, phoneNumber);
     }
 

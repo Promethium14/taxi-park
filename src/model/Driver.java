@@ -2,22 +2,22 @@ package model;
 
 public class Driver extends Person {
 
-    private Document licence;
+    private DriverLicense licence;
 
     public Driver() {
         super();
     }
 
-    public Driver(String name, long phoneNumber, Document licence) {
+    public Driver(String name, String phoneNumber, DriverLicense licence) {
         super(name, phoneNumber);
         this.licence = licence;
     }
 
-    public Document getLicence() {
+    public DriverLicense getLicence() {
         return licence;
     }
 
-    public void setLicence(Document drivingLicence) {
+    public void setLicence(DriverLicense drivingLicence) {
         this.licence = drivingLicence;
     }
 

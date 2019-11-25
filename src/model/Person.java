@@ -2,12 +2,12 @@ package model;
 
 public abstract class Person {
     private String name;
-    private long phoneNumber;
+    private String phoneNumber;
 
     protected Person() {
     }
 
-    protected Person(String name, long phoneNumber) {
+    protected Person(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
@@ -20,11 +20,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

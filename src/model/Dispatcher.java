@@ -4,7 +4,7 @@ public class Dispatcher extends Person {
 
     private Office office;
 
-    public Dispatcher(String name, long phoneNumber, Office office) {
+    public Dispatcher(String name, String phoneNumber, Office office) {
         super(name, phoneNumber);
         this.office = office;
     }

@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Order {
+public class Order implements IPrintable{
 
     private int number;
     private Date date;
@@ -79,5 +79,10 @@ public class Order {
                 "driver: " + getDriver().toString() + "\n" +
                 "car: " + getCar().toString() + "\n" +
                 "dispatcher: " + getDispatcher().toString();
+    }
+
+    @Override
+    public void print() {
+        System.out.println(this.toString());
     }
 }

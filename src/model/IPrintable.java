@@ -1,5 +1,5 @@
 package model;
 
-public interface Printable {
+public interface IPrintable {
     void print();
 }
