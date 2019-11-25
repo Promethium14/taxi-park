@@ -3,7 +3,7 @@ import model.*;
 import java.text.*;
 import java.util.Date;
 
-public class Main {
+public class Executor {
 
     public static void main(String[] args) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
