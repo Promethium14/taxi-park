@@ -1,7 +1,8 @@
 package model;
 
-public class Driver extends Person {
+public final class Driver extends Person {
 
+    private static int driverCounter = 0;
     private DriverLicense licence;
 
     public Driver() {
@@ -11,6 +12,11 @@ public class Driver extends Person {
     public Driver(String name, String phoneNumber, DriverLicense licence) {
         super(name, phoneNumber);
         this.licence = licence;
+        driverCounter++;
+    }
+
+    public static int getDriverCounter() {
+        return driverCounter;
     }
 
     public DriverLicense getLicence() {

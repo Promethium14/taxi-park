@@ -1,6 +1,6 @@
 package model;
 
-public class Dispatcher extends Person {
+public final class Dispatcher extends Person {
 
     private Office office;
 

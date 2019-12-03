@@ -2,16 +2,16 @@ package model;
 
 import java.util.Date;
 
-public class Order implements IPrintable{
+public class Booking implements IPrintable{
 
     private int number;
     private Date date;
     private Dispatcher dispatcher;
-    private Driver driver;
-    private Client client;
+    private Person driver;
+    private Person client;
     private Car car;
 
-    public Order(int number, Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
+    public Booking(int number, Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
         this.number = number;
         this.date = date;
         this.dispatcher = dispatcher;
@@ -20,7 +20,7 @@ public class Order implements IPrintable{
         this.car = car;
     }
 
-    public Order() {
+    public Booking() {
     }
 
     public int getNumber() {
@@ -47,19 +47,19 @@ public class Order implements IPrintable{
         this.dispatcher = dispatcher;
     }
 
-    public Driver getDriver() {
+    public Person getDriver() {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
+    public void setDriver(Person driver) {
         this.driver = driver;
     }
 
-    public Client getClient() {
+    public Person getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(Person client) {
         this.client = client;
     }
 
@@ -73,7 +73,7 @@ public class Order implements IPrintable{
 
     @Override
     public String toString() {
-        return "Order #" + getNumber() + ":\n" +
+        return "Booking #" + getNumber() + ":\n" +
                 "date: " + getDate().toString() +
                 "\ndetails: \nclient: " + getClient().toString() + "\n" +
                 "driver: " + getDriver().toString() + "\n" +
@@ -81,8 +81,18 @@ public class Order implements IPrintable{
                 "dispatcher: " + getDispatcher().toString();
     }
 
+    public void print(boolean isFullOrder) {
+        if (isFullOrder) {
+            System.out.println(this.toString());
+        }
+    }
+
     @Override
-    public void print() {
-        System.out.println(this.toString());
+    public void print(){
+        System.out.println("Order #" + getNumber() + ":\n" +
+                "date: " + getDate().toString() +
+                "\ndetails: \nclient: " + getClient().toString() + "\n" +
+                "driver: " + getDriver().toString() + "\n" +
+                "car: " + getCar().toString());
     }
 }
