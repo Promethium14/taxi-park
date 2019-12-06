@@ -1,9 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Office {
 
     private String name;
     private Address address;
+
+    private List<Dispatcher> dispatchers = new ArrayList<>();
 
     public Office() {
     }
@@ -32,5 +37,17 @@ public class Office {
     @Override
     public String toString() {
         return "office name: " + getName() + " address: " + getAddress().toString();
+    }
+
+    public List<Dispatcher> getDispatchers() {
+        return dispatchers;
+    }
+
+    public void addDispatcher(Dispatcher dispatcher){
+        this.dispatchers.add(dispatcher);
+    }
+
+    public void removeDispatcher(Dispatcher dispatcher){
+        this.dispatchers.remove(dispatcher);
     }
 }

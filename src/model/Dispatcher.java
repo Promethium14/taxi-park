@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public final class Dispatcher extends Person {
 
     private Office office;
@@ -20,5 +22,18 @@ public final class Dispatcher extends Person {
     @Override
     public String toString() {
         return super.toString() + "\n" + getOffice().toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Dispatcher)) return false;
+        if(obj == this) return true;
+        return ((Dispatcher) obj) .getName().equals(this.getName()) &&
+                ((Dispatcher) obj).getPhoneNumber().equals(this.getPhoneNumber());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName(), this.getOffice(), this.getPhoneNumber());
     }
 }
