@@ -1,5 +1,3 @@
-import model.Booking;
-
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Random;
@@ -22,7 +20,7 @@ public class Executor {
         } catch (ReportException reportException) {
             reportException.printStackTrace();
         }
-        int number = new Random().nextInt(); //aaaaaaaaaaaaaaaaaaaaaaaa
+        int number = new Random().nextInt();
         try {
             report.find(number).print();
         } catch (ReportException reportException) {
