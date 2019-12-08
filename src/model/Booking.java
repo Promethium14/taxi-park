@@ -2,13 +2,13 @@ package model;
 
 import java.util.Date;
 
-public class Booking implements IPrintable{
+public class Booking implements IPrintable {
 
     private int number;
     private Date date;
     private Dispatcher dispatcher;
-    private Person driver;
-    private Person client;
+    private Driver driver;
+    private Client client;
     private Car car;
 
     public Booking(int number, Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
@@ -51,7 +51,7 @@ public class Booking implements IPrintable{
         return driver;
     }
 
-    public void setDriver(Person driver) {
+    public void setDriver(Driver driver) {
         this.driver = driver;
     }
 
@@ -59,7 +59,7 @@ public class Booking implements IPrintable{
         return client;
     }
 
-    public void setClient(Person client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 

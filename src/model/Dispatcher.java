@@ -6,6 +6,9 @@ public final class Dispatcher extends Person {
 
     private Office office;
 
+    public Dispatcher(){
+    }
+
     public Dispatcher(String name, String phoneNumber, Office office) {
         super(name, phoneNumber);
         this.office = office;
