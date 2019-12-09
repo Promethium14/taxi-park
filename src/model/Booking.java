@@ -1,8 +1,11 @@
 package model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Booking implements IPrintable {
+
+    private static int counter = 0;
 
     private int number;
     private Date date;
@@ -11,13 +14,13 @@ public class Booking implements IPrintable {
     private Client client;
     private Car car;
 
-    public Booking(int number, Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
-        this.number = number;
+    public Booking(Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
         this.date = date;
         this.dispatcher = dispatcher;
         this.driver = driver;
         this.client = client;
         this.car = car;
+        this.number = ++counter;
     }
 
     public Booking() {
@@ -25,10 +28,6 @@ public class Booking implements IPrintable {
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public Date getDate() {
@@ -47,7 +46,7 @@ public class Booking implements IPrintable {
         this.dispatcher = dispatcher;
     }
 
-    public Person getDriver() {
+    public Driver getDriver() {
         return driver;
     }
 
@@ -55,7 +54,7 @@ public class Booking implements IPrintable {
         this.driver = driver;
     }
 
-    public Person getClient() {
+    public Client getClient() {
         return client;
     }
 
