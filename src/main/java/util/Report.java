@@ -8,7 +8,6 @@ import java.util.*;
 public class Report {
 
     private Queue<Booking> reportQueue = new LinkedList<>();
-    private Set<DriverLicense> driverLicenses = new HashSet<>();
 
     public Queue getReportQueue() {
         return reportQueue;
@@ -46,18 +45,6 @@ public class Report {
             }
         }
         return null;
-    }
-
-    public Set<DriverLicense> getDriverLicenses() {
-        return driverLicenses;
-    }
-
-    public boolean addDriverLicence(DriverLicense license){
-        return driverLicenses.add(license);
-    }
-
-    public boolean removeDriverLicence(DriverLicense license) {
-        return driverLicenses.remove(license);
     }
 
 }

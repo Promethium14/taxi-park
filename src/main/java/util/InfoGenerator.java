@@ -9,11 +9,11 @@ import java.util.Random;
 
 public class InfoGenerator {
 
+    private static final int SEED = 100;
     private static Random random = new Random();
 
     public static Booking generateBooking() {
-        return new Booking(Math.abs(random.nextInt()),
-                generateRandomDate(),
+        return new Booking(generateRandomDate(),
                 (Dispatcher) generatePersonInformation(new Dispatcher()),
                 (Driver) generatePersonInformation(new Driver()),
                 (Client) generatePersonInformation(new Client()),
@@ -23,32 +23,32 @@ public class InfoGenerator {
     public static Person generatePersonInformation(Person person) {
         if(person instanceof Driver) {
             Driver driver = (Driver) person;
-            driver.setName("driver" + Math.abs(random.nextInt()));
-            driver.setPhoneNumber(Long.toString(Math.abs(random.nextInt())));
+            driver.setName("driver" + Math.abs(random.nextInt(SEED)));
+            driver.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
             driver.setLicence(generateDriverLicence());
             return driver;
         } else if (person instanceof Dispatcher) {
             Dispatcher dispatcher = (Dispatcher) person;
-            dispatcher.setName("dispatcher" + Math.abs(random.nextInt()));
-            dispatcher.setPhoneNumber(Long.toString(Math.abs(random.nextInt())));
+            dispatcher.setName("dispatcher" + Math.abs(random.nextInt(SEED)));
+            dispatcher.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
             dispatcher.setOffice(generateOffice());
             return dispatcher;
         } else if (person instanceof Client) {
             Client client = (Client) person;
-            client.setName("client" + Math.abs(random.nextInt()));
-            client.setPhoneNumber(Long.toString(Math.abs(random.nextInt())));
+            client.setName("client" + Math.abs(random.nextInt(SEED)));
+            client.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
             return client;
         }
         return null;
     }
 
     public static Office generateOffice() {
-        return new Office("name" + Math.abs(random.nextInt()),
+        return new Office("name" + Math.abs(random.nextInt(SEED)),
                 generateAddress());
     }
 
     public static DriverLicense generateDriverLicence() {
-        return new DriverLicense(Math.abs(random.nextInt()), generateRandomDate());
+        return new DriverLicense(Math.abs(random.nextInt(SEED)), generateRandomDate());
     }
 
     public static Date generateRandomDate() {
@@ -70,15 +70,15 @@ public class InfoGenerator {
     }
 
     public static Address generateAddress() {
-        return new Address("city" + Math.abs(random.nextInt()),
-                "street" + Math.abs(random.nextInt()),
-                Math.abs(random.nextInt()));
+        return new Address("city" + Math.abs(random.nextInt(SEED)),
+                "street" + Math.abs(random.nextInt(SEED)),
+                Math.abs(random.nextInt(SEED)));
     }
 
     public static Car generateCar() {
         return new Car(Integer.toString(Math.abs(random.nextInt())),
-                "brand" + Math.abs(random.nextInt(10000)),
-                "model" + Math.abs(random.nextInt(1111)),
-                "color" + Math.abs(random.nextInt(255)));
+                "brand" + Math.abs(random.nextInt(SEED)),
+                "model" + Math.abs(random.nextInt(SEED)),
+                "color" + Math.abs(random.nextInt(SEED)));
     }
 }
