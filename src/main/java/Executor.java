@@ -19,12 +19,14 @@ public class Executor {
             report.addBooking(booking);
             mapReport.addBooking(booking);
         }
+
         Date date = report.getLastBooking().getDate();
         try {
             report.find(date).print();
         } catch (ReportException reportException) {
             reportException.printStackTrace();
         }
+
         int number = new Random().nextInt();
         try {
             report.find(number).print();

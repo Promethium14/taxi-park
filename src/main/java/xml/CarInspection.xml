@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<carInspection>
+    <inspectionDate>1961-01-02T00:01:00+03:00</inspectionDate>
+    <car><number>105144680</number>
+        <model>model52</model>
+        <color>color70</color>
+        <brand>brand12</brand>
+    </car><comment>all right</comment>
+</carInspection>

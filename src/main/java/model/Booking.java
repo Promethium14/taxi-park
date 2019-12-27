@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class Booking implements IPrintable {
 
@@ -14,7 +13,8 @@ public class Booking implements IPrintable {
     private Client client;
     private Car car;
 
-    public Booking(Date date, Dispatcher dispatcher, Driver driver, Client client, Car car) {
+    public Booking(Date date, Dispatcher dispatcher,
+                   Driver driver, Client client, Car car) {
         this.date = date;
         this.dispatcher = dispatcher;
         this.driver = driver;
