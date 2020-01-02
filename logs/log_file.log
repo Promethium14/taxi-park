@@ -1,0 +1,89 @@
+[INFO ] 2020-01-02 23:05:50.950 [main] Executor - Booking #1:
+date: Thu Jan 12 00:08:00 EET 999
+details: 
+client: name: client82 phone number: 46
+driver: name: driver46 phone number: 48 licence: document number: 19 date of issue: Sat Jan 09 00:04:00 EET 1886
+car: brand: brand34 model: model7 color: color11 number: 77778853
+dispatcher: name: dispatcher37 phone number: 42
+office name: name78 address: city: city26 street: street96 building: 17
+[ERROR] 2020-01-02 23:05:50.955 [main] Executor - Unable to find booking in report.
+[INFO ] 2020-01-02 23:05:50.955 [main] Executor - Booking #1:
+date: Thu Jan 12 00:08:00 EET 999
+details: 
+client: name: client82 phone number: 46
+driver: name: driver46 phone number: 48 licence: document number: 19 date of issue: Sat Jan 09 00:04:00 EET 1886
+car: brand: brand34 model: model7 color: color11 number: 77778853
+dispatcher: name: dispatcher37 phone number: 42
+office name: name78 address: city: city26 street: street96 building: 17
+[INFO ] 2020-01-02 23:05:50.956 [main] Executor - Booking #2:
+date: Thu Jan 13 00:09:00 EET 1362
+details: 
+client: name: client93 phone number: 34
+driver: name: driver92 phone number: 5 licence: document number: 11 date of issue: Fri Jan 12 00:04:00 EET 1291
+car: brand: brand73 model: model24 color: color97 number: 617818642
+dispatcher: name: dispatcher11 phone number: 3
+office name: name64 address: city: city30 street: street0 building: 15
+[INFO ] 2020-01-02 23:05:50.956 [main] Executor - Booking #3:
+date: Mon Jan 05 00:01:00 EET 700
+details: 
+client: name: client59 phone number: 1
+driver: name: driver36 phone number: 72 licence: document number: 2 date of issue: Sat Jan 07 00:06:00 EET 568
+car: brand: brand64 model: model81 color: color29 number: 1890935353
+dispatcher: name: dispatcher7 phone number: 76
+office name: name59 address: city: city93 street: street44 building: 32
+[INFO ] 2020-01-02 23:05:50.956 [main] Executor - Booking #4:
+date: Thu Jan 14 00:08:00 EET 1563
+details: 
+client: name: client0 phone number: 85
+driver: name: driver80 phone number: 54 licence: document number: 53 date of issue: Mon Jan 08 00:02:00 EET 714
+car: brand: brand3 model: model55 color: color24 number: 2076039277
+dispatcher: name: dispatcher36 phone number: 99
+office name: name22 address: city: city95 street: street92 building: 85
+[INFO ] 2020-01-02 23:05:50.957 [main] Executor - Booking #5:
+date: Tue Jan 24 00:10:00 EET 1995
+details: 
+client: name: client45 phone number: 72
+driver: name: driver15 phone number: 38 licence: document number: 52 date of issue: Mon Jan 11 00:06:00 EET 1227
+car: brand: brand42 model: model90 color: color63 number: 839466771
+dispatcher: name: dispatcher31 phone number: 11
+office name: name67 address: city: city60 street: street16 building: 21
+[INFO ] 2020-01-02 23:05:50.957 [main] Executor - Booking #6:
+date: Wed Jan 12 00:09:00 EET 679
+details: 
+client: name: client92 phone number: 49
+driver: name: driver92 phone number: 24 licence: document number: 75 date of issue: Thu Jan 28 00:07:00 EET 1563
+car: brand: brand7 model: model39 color: color84 number: 7396787
+dispatcher: name: dispatcher48 phone number: 62
+office name: name50 address: city: city83 street: street65 building: 66
+[INFO ] 2020-01-02 23:05:50.957 [main] Executor - Booking #7:
+date: Fri Jan 02 00:01:00 EET 526
+details: 
+client: name: client32 phone number: 96
+driver: name: driver78 phone number: 22 licence: document number: 2 date of issue: Sun Jan 06 00:11:00 EET 194
+car: brand: brand21 model: model47 color: color70 number: 677707959
+dispatcher: name: dispatcher3 phone number: 94
+office name: name72 address: city: city12 street: street47 building: 35
+[INFO ] 2020-01-02 23:05:50.958 [main] Executor - Booking #8:
+date: Tue Jan 03 00:05:00 EET 1167
+details: 
+client: name: client35 phone number: 10
+driver: name: driver0 phone number: 64 licence: document number: 10 date of issue: Mon Jan 01 00:05:00 EET 1162
+car: brand: brand50 model: model24 color: color81 number: 565520729
+dispatcher: name: dispatcher28 phone number: 82
+office name: name91 address: city: city4 street: street87 building: 7
+[INFO ] 2020-01-02 23:05:50.958 [main] Executor - Booking #9:
+date: Mon Jan 01 00:05:00 EET 1571
+details: 
+client: name: client35 phone number: 65
+driver: name: driver13 phone number: 10 licence: document number: 99 date of issue: Sat Jan 06 00:08:00 EET 1061
+car: brand: brand28 model: model58 color: color41 number: 1009346165
+dispatcher: name: dispatcher84 phone number: 97
+office name: name11 address: city: city58 street: street83 building: 87
+[INFO ] 2020-01-02 23:05:50.958 [main] Executor - Booking #10:
+date: Tue Jan 30 00:03:00 EET 837
+details: 
+client: name: client50 phone number: 54
+driver: name: driver37 phone number: 83 licence: document number: 97 date of issue: Tue Jan 14 00:01:00 EET 447
+car: brand: brand12 model: model5 color: color75 number: 2034510800
+dispatcher: name: dispatcher37 phone number: 24
+office name: name86 address: city: city14 street: street10 building: 26
