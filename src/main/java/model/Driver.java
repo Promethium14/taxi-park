@@ -3,7 +3,7 @@ package model;
 public final class Driver extends Person {
 
     private static int driverCounter = 0;
-    private DriverLicense licence;
+    private DriverLicense license;
 
     public Driver() {
         super();
@@ -11,7 +11,7 @@ public final class Driver extends Person {
 
     public Driver(String name, String phoneNumber, DriverLicense licence) {
         super(name, phoneNumber);
-        this.licence = licence;
+        this.license = licence;
         driverCounter++;
     }
 
@@ -19,16 +19,16 @@ public final class Driver extends Person {
         return driverCounter;
     }
 
-    public DriverLicense getLicence() {
-        return licence;
+    public DriverLicense getLicense() {
+        return license;
     }
 
-    public void setLicence(DriverLicense drivingLicence) {
-        this.licence = drivingLicence;
+    public void setLicence(DriverLicense drivingLicense) {
+        this.license = drivingLicense;
     }
 
     @Override
     public String toString() {
-        return  super.toString() + " licence: " + getLicence().toString();
+        return  super.toString() + " license: " + getLicense().toString();
     }
 }
