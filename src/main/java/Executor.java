@@ -1,18 +1,17 @@
+import model.Address;
 import model.Booking;
 import model.Office;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import util.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.util.Date;
 import java.util.Random;
 
 public class Executor {
 
     private static final Logger LOGGER = LogManager.getLogger();
+    private static final String PROPERTIES_FILE_NAME = "taxi-park.properties";
 
     public static void main(String[] args) {
 
@@ -28,42 +27,39 @@ public class Executor {
         Date date = report.getLastBooking().getDate();
 
         try {
-            LOGGER.info(report.find(date).toString());
+            LOGGER.info("Booking #" + report.find(date).getNumber() + " is found!");
         } catch (ReportException reportException) {
             LOGGER.error(reportException.getStackTrace());
         }
 
         int number = new Random().nextInt();
         try {
-            LOGGER.info(report.find(number).toString());
+            LOGGER.info("Booking #" + report.find(number).toString() + " is found!");
         } catch (ReportException reportException) {
             LOGGER.error(reportException.getMessage());
         }
 
         for (Booking b : mapReport.getAllBookings()) {
-            LOGGER.info(b.toString());
+            LOGGER.info("Booking #" + b.getNumber() + " found in the Report");
         }
 
-        try {
-            Office office = PropertiesParser.getOfficeFromFile(
-                    new Executor().getFileFromResources("taxi-park.properties"));
-            LOGGER.info("***************************************************");
-            LOGGER.info(office.toString());
-        } catch (IOException ioException) {
-            LOGGER.error(ioException.getMessage());
-        }
-    }
+        Office office = new Office();
+        Address officeAddress = new Address();
 
-    private File getFileFromResources(String fileName) {
-
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file not found");
-        } else {
-            return new File(resource.getFile());
-        }
+        officeAddress
+                .setCity(PropertiesParser
+                        .getPropertyByName("office.address.city", PROPERTIES_FILE_NAME));
+        officeAddress
+                .setBuilding(Integer
+                        .parseInt(PropertiesParser
+                                .getPropertyByName("office.address.building", PROPERTIES_FILE_NAME)));
+        officeAddress
+                .setStreet(PropertiesParser
+                        .getPropertyByName("office.address.street", PROPERTIES_FILE_NAME));
+        office.setAddress(officeAddress);
+        office.setName(PropertiesParser
+                .getPropertyByName("office.name", PROPERTIES_FILE_NAME));
+        LOGGER.info("Office was successfully loaded from file");
 
     }
 }
