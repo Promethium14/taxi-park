@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.DriverMapper">
+    <resultMap id="driver" type="model.Driver"/>
+    <select id="getDriverById" parameterType="java.lang.Long">
+        select * from Driver where id = #{id}
+    </select>
+    <select id="getDriver" resultMap="driver">
+        select * from Driver
+    </select>
+    <insert id="insertDriver" parameterType="model.Driver">
+        insert into Client(id)
+        values (#{id})
+    </insert>
+    <!--update id="updateDriver" parameterType="model.Driver">
+        update Driver
+        set
+        where id = #{id}
+    </update-->
+    <delete id="deleteDriver" parameterType="model.Driver">
+        delete from Driver
+        where id = #{id}
+    </delete>
+</mapper>

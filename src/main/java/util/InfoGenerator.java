@@ -4,7 +4,7 @@ import model.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Random;
 
 public class InfoGenerator {
@@ -24,19 +24,19 @@ public class InfoGenerator {
         if(person instanceof Driver) {
             Driver driver = (Driver) person;
             driver.setName("driver" + Math.abs(random.nextInt(SEED)));
-            driver.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
+            driver.setPhonenumber(Long.toString(Math.abs(random.nextInt(SEED))));
             driver.setLicence(generateDriverLicence());
             return driver;
         } else if (person instanceof Dispatcher) {
             Dispatcher dispatcher = (Dispatcher) person;
             dispatcher.setName("dispatcher" + Math.abs(random.nextInt(SEED)));
-            dispatcher.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
+            dispatcher.setPhonenumber(Long.toString(Math.abs(random.nextInt(SEED))));
             dispatcher.setOffice(generateOffice());
             return dispatcher;
         } else if (person instanceof Client) {
             Client client = (Client) person;
             client.setName("client" + Math.abs(random.nextInt(SEED)));
-            client.setPhoneNumber(Long.toString(Math.abs(random.nextInt(SEED))));
+            client.setPhonenumber(Long.toString(Math.abs(random.nextInt(SEED))));
             return client;
         }
         return null;
@@ -63,7 +63,7 @@ public class InfoGenerator {
         dateString.append("-");
         dateString.append(year);
         try {
-            return dateFormat.parse(dateString.toString());
+            return (java.sql.Date)dateFormat.parse(dateString.toString());
         } catch (ParseException parseException) {
             return null;
         }

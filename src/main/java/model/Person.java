@@ -2,15 +2,17 @@ package model;
 
 
 public abstract class Person {
+
+    private Long id;
     private String name;
-    private String phoneNumber;
+    private String phonenumber;
 
     protected Person() {
     }
 
-    protected Person(String name, String phoneNumber) {
+    public Person(String name, String phoneNumber) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phoneNumber;
     }
 
     public String getName() {
@@ -21,17 +23,25 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhonenumber(String phoneNumber) {
+        this.phonenumber = phoneNumber;
     }
 
     @Override
     public String toString() {
         return "name: " + getName() +
-                " phone number: " + getPhoneNumber();
+                " phone number: " + getPhonenumber();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

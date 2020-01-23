@@ -1,6 +1,8 @@
 package model;
 
 public class Address {
+
+    private Integer id;
     private String city;
     private String street;
     private int building;
@@ -9,9 +11,11 @@ public class Address {
     }
 
     public Address(String city, String street, int building) {
+
         this.building = building;
         this.city = city;
         this.street = street;
+
     }
 
     public String getCity() {
@@ -43,5 +47,13 @@ public class Address {
         return "city: " + getCity() +
                 " street: " + getStreet() +
                 " building: " + getBuilding();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

@@ -1,9 +1,10 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class DriverLicense {
 
+    private long id;
     private int number;
     private Date dateOfIssue;
 
@@ -35,5 +36,13 @@ public class DriverLicense {
     public String toString() {
         return "document number: " + getNumber() +
                 " date of issue: " + getDateOfIssue().toString();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

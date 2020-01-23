@@ -1,8 +1,10 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class CarInspection {
+
+    private long id;
     private Date inspectionDate;
     private Car car;
     private String comment;
@@ -45,5 +47,13 @@ public class CarInspection {
         return "inspection date: " + getInspectionDate() +
                 " car: \n" + getCar().toString() +
                 " comment: " + getComment();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

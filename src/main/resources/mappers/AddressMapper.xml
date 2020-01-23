@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.AddressMapper">
+    <resultMap id="address" type="model.Address"/>
+    <select id="getAddressById" parameterType="java.lang.Integer">
+        select * from Address where id = #{id}
+    </select>
+    <select id="getAddress" resultMap="address">
+        select * from Address
+    </select>
+    <insert id="insertAddress" parameterType="model.Address">
+        insert into Address(id, street, city, building)
+        values (#{id}, #{street}, #{city}, #{building})
+    </insert>
+    <update id="updateAddress" parameterType="model.Address">
+        update Address
+        set street = #{street}, city = #{city}, building = #{building}
+        where id = #{id}
+    </update>
+    <delete id="deleteAddress" parameterType="model.Address">
+        delete from Address
+        where id = #{id}
+    </delete>
+</mapper>

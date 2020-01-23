@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public final class Dispatcher extends Person {
 
+    private long id;
     private Office office;
 
     public Dispatcher(){
@@ -32,11 +33,21 @@ public final class Dispatcher extends Person {
         if(!(obj instanceof Dispatcher)) return false;
         if(obj == this) return true;
         return ((Dispatcher) obj) .getName().equals(this.getName()) &&
-                ((Dispatcher) obj).getPhoneNumber().equals(this.getPhoneNumber());
+                ((Dispatcher) obj).getPhonenumber().equals(this.getPhonenumber());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getName(), this.getOffice(), this.getPhoneNumber());
+        return Objects.hash(this.getName(), this.getOffice(), this.getPhonenumber());
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 }

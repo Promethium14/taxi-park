@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Office {
 
+    private long id;
     private String name;
     private Address address;
 
@@ -49,5 +50,13 @@ public class Office {
 
     public void removeDispatcher(Dispatcher dispatcher){
         this.dispatchers.remove(dispatcher);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

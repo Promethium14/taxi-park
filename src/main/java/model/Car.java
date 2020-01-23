@@ -1,6 +1,8 @@
 package model;
 
 public class Car {
+
+    private long id;
     private String number;
     private String model;
     private String color;
@@ -54,5 +56,13 @@ public class Car {
                 " model: " + getModel() +
                 " color: " + getColor() +
                 " number: " + getNumber();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

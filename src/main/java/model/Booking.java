@@ -1,12 +1,12 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Booking implements IPrintable {
 
     private static int counter = 0;
 
-    private int number;
+    private long id;
     private Date date;
     private Dispatcher dispatcher;
     private Driver driver;
@@ -20,14 +20,9 @@ public class Booking implements IPrintable {
         this.driver = driver;
         this.client = client;
         this.car = car;
-        this.number = ++counter;
     }
 
     public Booking() {
-    }
-
-    public int getNumber() {
-        return number;
     }
 
     public Date getDate() {
@@ -72,7 +67,7 @@ public class Booking implements IPrintable {
 
     @Override
     public String toString() {
-        return "Booking #" + getNumber() + ":\n" +
+        return "Booking #" + getId() + ":\n" +
                 "date: " + getDate().toString() +
                 "\ndetails: \nclient: " + getClient().toString() + "\n" +
                 "driver: " + getDriver().toString() + "\n" +
@@ -88,10 +83,18 @@ public class Booking implements IPrintable {
 
     @Override
     public void print(){
-        System.out.println("Order #" + getNumber() + ":\n" +
+        System.out.println("Order #" + getId() + ":\n" +
                 "date: " + getDate().toString() +
                 "\ndetails: \nclient: " + getClient().toString() + "\n" +
                 "driver: " + getDriver().toString() + "\n" +
                 "car: " + getCar().toString());
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

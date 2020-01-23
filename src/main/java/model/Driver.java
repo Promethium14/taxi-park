@@ -3,6 +3,8 @@ package model;
 public final class Driver extends Person {
 
     private static int driverCounter = 0;
+
+    private long id;
     private DriverLicense license;
 
     public Driver() {
@@ -30,5 +32,15 @@ public final class Driver extends Person {
     @Override
     public String toString() {
         return  super.toString() + " license: " + getLicense().toString();
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 }

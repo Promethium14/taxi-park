@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.OfficeMapper">
+    <resultMap id="office" type="model.Office"/>
+    <select id="getOfficeById" parameterType="java.lang.Long">
+        select * from Office where id = #{id}
+    </select>
+    <select id="getOffice" resultMap="office">
+        select * from Office
+    </select>
+    <insert id="insertOffice" parameterType="model.Office">
+        insert into Office(id, name)
+        values (#{id}, #{name})
+    </insert>
+    <update id="updateOffice" parameterType="model.Office">
+        update Office
+        set name = #{name}
+        where id = #{id}
+    </update>
+    <delete id="deleteOffice" parameterType="model.Office">
+        delete from Office
+        where id = #{id}
+    </delete>
+</mapper>

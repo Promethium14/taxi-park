@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CarInspectionMapper">
+    <resultMap id="car_inspection" type="model.CarInspection">
+        <result property="inspectionDate" column="date"/>
+    </resultMap>
+    <select id="getCarInspectionById" parameterType="java.lang.Long">
+        select * from Car_inspection where id = #{id}
+    </select>
+    <select id="getCarInspection" resultMap="car_inspection">
+        select * from Car_inspection
+    </select>
+    <insert id="insertCarInspection" parameterType="model.CarInspection">
+        insert into Car_inspection(id, date, comment)
+        values (#{id}, #{inspectionDate}, #{comment})
+    </insert>
+    <update id="updateCarInspection" parameterType="model.CarInspection">
+        update Car_inspection
+        set inspectionDate = #{inspectionDate}, comment = #{comment}
+        where id = #{id}
+    </update>
+    <delete id="deleteCarInspection" parameterType="model.CarInspection">
+        delete from Car_inspection
+        where id = #{id}
+    </delete>
+</mapper>

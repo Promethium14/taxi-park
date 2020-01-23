@@ -25,9 +25,9 @@ public class Report {
         reportQueue.poll();
     }
 
-    public Booking find(int number) throws ReportException {
+    public Booking find(int id) throws ReportException {
         for(Booking entity : reportQueue) {
-            if(entity.getNumber() == number) {
+            if(entity.getId() == id) {
                 return entity;
             } else {
                 throw new ReportException();

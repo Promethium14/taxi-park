@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.BookingMapper">
+    <resultMap id="booking" type="model.Booking"/>
+    <select id="getBookingById" parameterType="java.lang.Long">
+        select * from Booking where id = #{id}
+    </select>
+    <select id="getBooking" resultMap="booking">
+        select * from Booking
+    </select>
+    <insert id="insertBooking" parameterType="model.Booking">
+        insert into Booking(id, date)
+        values (#{id}, #{date})
+    </insert>
+    <update id="updateBooking" parameterType="model.Booking">
+        update Booking
+        set date = #{date}
+        where id = #{id}
+    </update>
+    <delete id="deleteBooking" parameterType="model.Booking">
+        delete from Booking
+        where id = #{id}
+    </delete>
+</mapper>
