@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.Driver;
 
 import java.util.List;
 
-public interface DriverMapper {
+public interface IDriverDAO {
 
     Driver getDriverById(Long id);
 

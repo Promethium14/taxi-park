@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.CarInspection;
 
 import java.util.List;
 
-public interface CarInspectionMapping {
+public interface ICarInspectionDAO {
 
     CarInspection getCarInspectionById(Long id);
 

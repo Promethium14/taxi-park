@@ -1,24 +1,28 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.DriverLicenseMapper">
-    <resultMap id="driver_license" type="model.DriverLicense"/>
+<mapper namespace="dao.IDriverLicenseDAO">
+    <resultMap id="driver_license" type="model.DriverLicense">
+        <id property="id" column="id"/>
+        <result property="number" column="number"/>
+        <result property="dateOfIssue" column="date_of_issue"/>
+    </resultMap>
     <select id="getDriverLicenseById" parameterType="java.lang.Long">
-        select * from DriverLicense where id = #{id}
+        select * from Driver_license where id = #{id}
     </select>
     <select id="getDriverLicense" resultMap="driver_license">
-        select * from DriverLicense
+        select * from Driver_license
     </select>
     <insert id="insertDriverLicense" parameterType="model.DriverLicense">
-        insert into DriverLicense(id, number, date_of_issue)
+        insert into Driver_license(id, number, date_of_issue)
         values (#{id}, #{number}, #{dateOfIssue})
     </insert>
     <update id="updateDriverLicense" parameterType="model.DriverLicense">
-        update DriverLicense
+        update Driver_license
         set number = #{number}, date_of_issue = #{dateOfIssue}
         where id = #{id}
     </update>
     <delete id="deleteDriverLicense" parameterType="model.DriverLicense">
-        delete from DriverLicense
+        delete from Driver_license
         where id = #{id}
     </delete>
 </mapper>

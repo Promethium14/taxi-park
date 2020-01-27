@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.DriverLicense;
 
 import java.util.List;
 
-public interface DriverLicenseMapper {
+public interface IDriverLicenseDAO {
 
     DriverLicense getDriverLicenseById(Long id);
 

@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.Office;
 
 import java.util.List;
 
-public interface OfficeMapper {
+public interface IOfficeDAO {
 
     Office getOfficeById(Long id);
 

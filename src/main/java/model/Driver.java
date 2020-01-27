@@ -4,7 +4,7 @@ public final class Driver extends Person {
 
     private static int driverCounter = 0;
 
-    private long id;
+    private Long id;
     private DriverLicense license;
 
     public Driver() {
@@ -34,12 +34,10 @@ public final class Driver extends Person {
         return  super.toString() + " license: " + getLicense().toString();
     }
 
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
