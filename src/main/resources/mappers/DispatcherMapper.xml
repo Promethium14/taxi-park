@@ -1,22 +1,25 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.DispatcherMapper">
-    <resultMap id="dispatcher" type="model.Dispatcher"/>
+<mapper namespace="dao.IDispatcherDAO">
+    <resultMap id="dispatcher" type="model.Dispatcher" extends="dao.IPersonDAO.person"/>
     <select id="getDispatcherById" parameterType="java.lang.Long">
-        select * from Dispatcher where id = #{id}
+        select * from Dispatcher
+        join Person on Person.id = Dispatcher.person_id
+        where id = #{id}
     </select>
     <select id="getDispatcher" resultMap="dispatcher">
         select * from Dispatcher
+        join Person on Person.id = Dispatcher.person_id
     </select>
     <insert id="insertDispatcher" parameterType="model.Dispatcher">
-        insert into Dispatcher(id)
-        values (#{id})
+        insert into Dispatcher(id, person_id)
+        values (#{id}, #{personId})
     </insert>
-    <!--update id="updateDriver" parameterType="model.Driver">
-        update Driver
-        set
+    <update id="updateDriver" parameterType="model.Driver">
+        update Dispatcher
+        set Driver_license_id = #{getLicense().getId()}, person_id = #{personId}
         where id = #{id}
-    </update-->
+    </update>
     <delete id="deleteDispatcher" parameterType="model.Dispatcher">
         delete from Dispatcher
         where id = #{id}

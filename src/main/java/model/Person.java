@@ -3,7 +3,7 @@ package model;
 
 public abstract class Person {
 
-    private Long id;
+    private Long personId;
     private String name;
     private String phonenumber;
 
@@ -37,11 +37,11 @@ public abstract class Person {
                 " phone number: " + getPhonenumber();
     }
 
-    public Long getId() {
-        return id;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPersonId(Long id) {
+        this.personId = id;
     }
 }

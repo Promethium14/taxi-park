@@ -1,10 +1,8 @@
-import mapper.AddressMapper;
-import mapper.PersonMapper;
 import model.Address;
-import model.Person;
-import org.apache.ibatis.session.SqlSession;
+import model.Driver;
+import service.AddressService;
+import service.UserService;
 import util.LoggerUtil;
-import util.MyBatisConfigUtil;
 
 import java.util.List;
 
@@ -14,18 +12,11 @@ public class Executor {
 
     public static void main(String[] args) {
 
-        SqlSession sqlSession = MyBatisConfigUtil.getSqlSessionFactory().openSession();
-        AddressMapper addressMapper;
-        List<Address> addressList;
+        List<Driver> drivers = new UserService().getDrivers();
 
-        addressMapper = sqlSession.getMapper(AddressMapper.class);
-
-        sqlSession.commit();
-        addressList = addressMapper.getAddress();
-        sqlSession.close();
-
-        for (Address address: addressList) {
-            LoggerUtil.LOGGER.info("Address: " + address.getId());
+        for (Driver driver: drivers) {
+            LoggerUtil.LOGGER.info("Driver: " + driver.getId() + " -- " + driver.getPhonenumber());
         }
+
     }
 }

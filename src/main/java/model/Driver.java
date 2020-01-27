@@ -34,12 +34,10 @@ public final class Driver extends Person {
         return  super.toString() + " license: " + getLicense().toString();
     }
 
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }

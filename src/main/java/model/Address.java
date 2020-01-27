@@ -2,7 +2,7 @@ package model;
 
 public class Address {
 
-    private Integer id;
+    private Long id;
     private String city;
     private String street;
     private int building;
@@ -49,11 +49,11 @@ public class Address {
                 " building: " + getBuilding();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

@@ -1,12 +1,12 @@
-package mapper;
+package dao;
 
 import model.Address;
 
 import java.util.List;
 
-public interface AddressMapper {
+public interface IAddressDAO {
 
-    Address getAddressById(Integer id);
+    Address getAddressById(Long id);
 
     List<Address> getAddress();
 

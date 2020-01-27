@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.Client;
 
 import java.util.List;
 
-public interface ClientMapper {
+public interface IClientDAO {
 
     Client getClientById(Long id);
 

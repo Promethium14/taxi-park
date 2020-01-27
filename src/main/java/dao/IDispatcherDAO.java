@@ -1,10 +1,10 @@
-package mapper;
+package dao;
 
 import model.Dispatcher;
 
 import java.util.List;
 
-public interface DispatcherMapper {
+public interface IDispatcherDAO {
     
     Dispatcher getDispatcherById(Long id);
 

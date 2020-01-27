@@ -1,22 +1,26 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.DriverMapper">
-    <resultMap id="driver" type="model.Driver"/>
-    <select id="getDriverById" parameterType="java.lang.Long">
-        select * from Driver where id = #{id}
+<mapper namespace="dao.IDriverDAO">
+    <resultMap id="driver" type="model.Driver" extends="dao.IPersonDAO.person">
+    </resultMap>
+    <select id="getDriverById" parameterType="java.lang.Long" resultMap="driver">
+        select * from Driver
+        join Person on Person.id = Driver.person_id
+        where id = #{id}
     </select>
     <select id="getDriver" resultMap="driver">
         select * from Driver
+        join Person on Person.id = Driver.Person_id
     </select>
     <insert id="insertDriver" parameterType="model.Driver">
-        insert into Client(id)
+        insert into Driver(id, person_id)
         values (#{id})
     </insert>
-    <!--update id="updateDriver" parameterType="model.Driver">
+    <update id="updateDriver" parameterType="model.Driver">
         update Driver
-        set
+        set Driver_license_id = #{getLicense().getId()}, person_id = #{personId}
         where id = #{id}
-    </update-->
+    </update>
     <delete id="deleteDriver" parameterType="model.Driver">
         delete from Driver
         where id = #{id}

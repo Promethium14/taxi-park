@@ -5,6 +5,7 @@ import java.util.Objects;
 public final class Dispatcher extends Person {
 
     private long id;
+    private long personId;
     private Office office;
 
     public Dispatcher(){
@@ -41,12 +42,10 @@ public final class Dispatcher extends Person {
         return Objects.hash(this.getName(), this.getOffice(), this.getPhonenumber());
     }
 
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
