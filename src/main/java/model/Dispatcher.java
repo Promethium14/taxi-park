@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public final class Dispatcher extends Person {
+public final class Dispatcher extends Person implements Serializable {
 
     private long id;
     private long personId;

@@ -1,6 +1,8 @@
 package model;
 
-public final class Driver extends Person {
+import java.io.Serializable;
+
+public final class Driver extends Person implements Serializable {
 
     private static int driverCounter = 0;
 

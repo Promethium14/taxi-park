@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Booking implements IPrintable {
+public class Booking implements IPrintable, Serializable {
 
     private static int counter = 0;
 

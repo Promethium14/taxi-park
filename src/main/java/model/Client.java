@@ -1,6 +1,8 @@
 package model;
 
-public final class Client extends Person {
+import java.io.Serializable;
+
+public final class Client extends Person implements Serializable {
 
     private static int clientCounter = 0;
 

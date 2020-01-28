@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class CarInspection {
+public class CarInspection implements Serializable {
 
     private long id;
     private Date inspectionDate;

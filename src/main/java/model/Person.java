@@ -1,7 +1,9 @@
 package model;
 
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
 
     private Long personId;
     private String name;

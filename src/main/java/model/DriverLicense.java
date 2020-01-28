@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class DriverLicense {
+public class DriverLicense implements Serializable {
 
     private long id;
     private long number;
