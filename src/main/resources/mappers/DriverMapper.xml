@@ -3,7 +3,7 @@
 <mapper namespace="dao.IDriverDAO">
     <resultMap id="driver" type="model.Driver" extends="dao.IPersonDAO.person">
         <id column="id" property="id"/>
-        <association property="license" resultMap="dao.IDriverLicenseDAO.driver_license"/>
+        <association property="license" resultMap="dao.IDriverLicenseDAO.DriverLicense"/>
     </resultMap>
     <select id="getDriverById" parameterType="java.lang.Long" resultMap="driver">
         select * from Driver
@@ -11,19 +11,19 @@
         where id = #{id}
     </select>
     <select id="getDriver" resultMap="driver">
-        select Driver.id, Driver.Driver_license_id, Driver.Person_id,
+        select Driver.id, Driver.DriverLicense_id, Driver.Person_id,
             Person.id, Person.name, Person.phonenumber,
-            Driver_license.id, Driver_license.number, Driver_license.date_of_issue from Driver
+            DriverLicense.id, DriverLicense.number, DriverLicense.date_of_issue from Driver
         join Person on Person.id = Driver.Person_id
-        join Driver_license on Driver.Driver_license_id = Driver_license.id
+        join DriverLicense on Driver.DriverLicense_id = DriverLicense.id
     </select>
     <insert id="insertDriver" parameterType="model.Driver">
-        insert into Driver(id, person_id)
-        values (#{id})
+        insert into Driver(id, person_id, DriverLicense_id)
+        values (#{id}, #{personId}, #{license.id})
     </insert>
     <update id="updateDriver" parameterType="model.Driver">
         update Driver
-        set Driver_license_id = #{getLicense().getId()}, person_id = #{personId}
+        set DriverLicense_id = #{license.id}, person_id = #{personId}
         where id = #{id}
     </update>
     <delete id="deleteDriver" parameterType="model.Driver">

@@ -13,14 +13,16 @@ public class Booking implements IPrintable, Serializable {
     private Driver driver;
     private Client client;
     private Car car;
+    private Address address;
 
     public Booking(Date date, Dispatcher dispatcher,
-                   Driver driver, Client client, Car car) {
+                   Driver driver, Client client, Car car, Address address) {
         this.date = date;
         this.dispatcher = dispatcher;
         this.driver = driver;
         this.client = client;
         this.car = car;
+        this.address = address;
     }
 
     public Booking() {
@@ -66,6 +68,22 @@ public class Booking implements IPrintable, Serializable {
         this.car = car;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Booking #" + getId() + ":\n" +
@@ -73,7 +91,8 @@ public class Booking implements IPrintable, Serializable {
                 "\ndetails: \nclient: " + getClient().toString() + "\n" +
                 "driver: " + getDriver().toString() + "\n" +
                 "car: " + getCar().toString() + "\n" +
-                "dispatcher: " + getDispatcher().toString();
+                "dispatcher: " + getDispatcher().toString() + "\n" +
+                "address: " + getAddress().toString();
     }
 
     public void print(boolean isFullOrder) {
@@ -89,13 +108,5 @@ public class Booking implements IPrintable, Serializable {
                 "\ndetails: \nclient: " + getClient().toString() + "\n" +
                 "driver: " + getDriver().toString() + "\n" +
                 "car: " + getCar().toString());
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 }

@@ -9,8 +9,8 @@
         select * from Office
     </select>
     <insert id="insertOffice" parameterType="model.Office">
-        insert into Office(id, name)
-        values (#{id}, #{name})
+        insert into Office(id, name, address_id)
+        values (#{id}, #{name}, #{address.id})
     </insert>
     <update id="updateOffice" parameterType="model.Office">
         update Office

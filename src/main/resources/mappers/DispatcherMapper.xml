@@ -12,8 +12,8 @@
         join Person on Person.id = Dispatcher.person_id
     </select>
     <insert id="insertDispatcher" parameterType="model.Dispatcher">
-        insert into Dispatcher(id, person_id)
-        values (#{id}, #{personId})
+        insert into Dispatcher(id, person_id, office_id)
+        values (#{id}, #{personId}, #{office.id})
     </insert>
     <update id="updateDriver" parameterType="model.Driver">
         update Dispatcher

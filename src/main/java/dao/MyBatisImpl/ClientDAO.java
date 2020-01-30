@@ -37,10 +37,10 @@ public class ClientDAO implements IClientDAO {
     @Override
     public void insertClient(Client entity) {
         SqlSession session = MyBatisConfigUtil.getSqlSessionFactory().openSession();
-        entityDAO = session.getMapper(DAOClass);
-        entityDAO.insertClient(entity);
         personDAO = session.getMapper(personDAOClass);
         personDAO.insertPerson(entity);
+        entityDAO = session.getMapper(DAOClass);
+        entityDAO.insertClient(entity);
         session.commit();
         session.close();
     }

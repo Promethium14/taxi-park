@@ -36,10 +36,10 @@ public class DriverDAO implements IDriverDAO {
     @Override
     public void insertDriver(Driver entity) {
         SqlSession session = MyBatisConfigUtil.getSqlSessionFactory().openSession();
-        entityDAO = session.getMapper(DAOClass);
-        entityDAO.insertDriver(entity);
         personDAO = session.getMapper(personDAOClass);
         personDAO.insertPerson(entity);
+        entityDAO = session.getMapper(DAOClass);
+        entityDAO.insertDriver(entity);
         session.commit();
         session.close();
     }

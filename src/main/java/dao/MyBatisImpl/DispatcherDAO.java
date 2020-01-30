@@ -36,10 +36,10 @@ public class DispatcherDAO implements IDispatcherDAO {
     @Override
     public void insertDispatcher(Dispatcher entity) {
         SqlSession session = MyBatisConfigUtil.getSqlSessionFactory().openSession();
-        entityDAO = session.getMapper(DAOClass);
-        entityDAO.insertDispatcher(entity);
         personDAO = session.getMapper(personDAOClass);
         personDAO.insertPerson(entity);
+        entityDAO = session.getMapper(DAOClass);
+        entityDAO.insertDispatcher(entity);
         session.commit();
         session.close();
     }

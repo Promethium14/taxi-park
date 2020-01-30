@@ -9,8 +9,8 @@
         select * from Booking
     </select>
     <insert id="insertBooking" parameterType="model.Booking">
-        insert into Booking(id, date)
-        values (#{id}, #{date})
+        insert into Booking(id, date, address_id, car_id, driver_id, dispatcher_id, client_id)
+        values (#{id}, #{date}, #{address.id}, #{car.id}, #{driver.id}, #{dispatcher.id}, #{client.id})
     </insert>
     <update id="updateBooking" parameterType="model.Booking">
         update Booking

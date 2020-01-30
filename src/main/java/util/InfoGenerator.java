@@ -2,9 +2,8 @@ package util;
 
 import model.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 public class InfoGenerator {
@@ -17,7 +16,7 @@ public class InfoGenerator {
                 (Dispatcher) generatePersonInformation(new Dispatcher()),
                 (Driver) generatePersonInformation(new Driver()),
                 (Client) generatePersonInformation(new Client()),
-                generateCar());
+                generateCar(), generateAddress());
     }
 
     public static Person generatePersonInformation(Person person) {
@@ -52,21 +51,23 @@ public class InfoGenerator {
     }
 
     public static Date generateRandomDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
         StringBuilder dateString = new StringBuilder();
-        int day = random.nextInt(31);
-        int month = new Random().nextInt(12);
-        int year = new Random().nextInt(2019);
-        dateString.append(day);
+        int day = random.nextInt(30);
+        int month = new Random().nextInt(11);
+        int year = new Random().nextInt(1018);
+        dateString.append(year+1000);
         dateString.append("-");
-        dateString.append(month);
+        dateString.append(month+1);
         dateString.append("-");
-        dateString.append(year);
-        try {
-            return (java.sql.Date)dateFormat.parse(dateString.toString());
-        } catch (ParseException parseException) {
-            return null;
-        }
+        dateString.append(day+1);
+        System.out.println(dateString.toString());
+        return Date.valueOf(dateString.toString());
+//        try {
+//            return (java.sql.Date) dateFormat.parse(dateString.toString());
+//        } catch (ParseException parseException) {
+//            return null;
+//        }
     }
 
     public static Address generateAddress() {
@@ -80,5 +81,9 @@ public class InfoGenerator {
                 "brand" + Math.abs(random.nextInt(SEED)),
                 "model" + Math.abs(random.nextInt(SEED)),
                 "color" + Math.abs(random.nextInt(SEED)));
+    }
+
+    public static long generateId() {
+        return random.nextInt(23331231);
     }
 }

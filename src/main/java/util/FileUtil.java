@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FileUtil {
 
-    public static void toFile(String filePath, String data) {
+    public static void toNewFile(String filePath, String data) {
         try {
             File file = new File(filePath);
             System.out.println(file.getAbsolutePath());

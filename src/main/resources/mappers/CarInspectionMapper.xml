@@ -11,8 +11,8 @@
         select * from Car_inspection
     </select>
     <insert id="insertCarInspection" parameterType="model.CarInspection">
-        insert into Car_inspection(id, date, comment)
-        values (#{id}, #{inspectionDate}, #{comment})
+        insert into Car_inspection(id, date, comment, car_id)
+        values (#{id}, #{inspectionDate}, #{comment}, #{car.id})
     </insert>
     <update id="updateCarInspection" parameterType="model.CarInspection">
         update Car_inspection

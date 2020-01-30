@@ -12,8 +12,8 @@
         join Person on Person.id = Client.person_id
     </select>
     <insert id="insertClient" parameterType="model.Client">
-        insert into Client(id)
-        values (#{id})
+        insert into Client(id, person_id)
+        values (#{id}, #{personId})
     </insert>
     <update id="updateClient" parameterType="model.Client">
         update Client
