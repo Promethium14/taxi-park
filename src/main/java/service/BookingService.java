@@ -27,18 +27,18 @@ public class BookingService {
     }
 
     public void saveBooking(Booking booking) {
-        booking.getAddress().setId(InfoGenerator.generateId());
-        booking.getDispatcher().getOffice().getAddress().setId(InfoGenerator.generateId());
-        booking.getDriver().getLicense().setId(InfoGenerator.generateId());
-        booking.getDriver().setId(InfoGenerator.generateId());
-        booking.getDriver().setPersonId(InfoGenerator.generateId());
-        booking.getClient().setPersonId(InfoGenerator.generateId());
-        booking.getClient().setId(InfoGenerator.generateId());
-        booking.getDispatcher().setPersonId(InfoGenerator.generateId());
-        booking.getDispatcher().setId(InfoGenerator.generateId());
-        booking.getDispatcher().getOffice().setId(InfoGenerator.generateId());
-        booking.getCar().setId(InfoGenerator.generateId());
-        booking.setId(InfoGenerator.generateId());
+//        booking.getAddress().setId(InfoGenerator.generateId());
+//        booking.getDispatcher().getOffice().getAddress().setId(InfoGenerator.generateId());
+//        booking.getDriver().getLicense().setId(InfoGenerator.generateId());
+//        booking.getDriver().setId(InfoGenerator.generateId());
+//        booking.getDriver().setPersonId(InfoGenerator.generateId());
+//        booking.getClient().setPersonId(InfoGenerator.generateId());
+//        booking.getClient().setId(InfoGenerator.generateId());
+//        booking.getDispatcher().setPersonId(InfoGenerator.generateId());
+//        booking.getDispatcher().setId(InfoGenerator.generateId());
+//        booking.getDispatcher().getOffice().setId(InfoGenerator.generateId());
+//        booking.getCar().setId(InfoGenerator.generateId());
+//        booking.setId(InfoGenerator.generateId());
 
         addressDAO.insertAddress(booking.getAddress());
         addressDAO.insertAddress(booking.getDispatcher().getOffice().getAddress());

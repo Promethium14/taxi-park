@@ -1,7 +1,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.IDispatcherDAO">
-    <resultMap id="dispatcher" type="model.Dispatcher" extends="dao.IPersonDAO.person"/>
+    <resultMap id="dispatcher" type="model.Dispatcher" extends="dao.IPersonDAO.person">
+        <id property="id" column="id"/>
+    </resultMap>
     <select id="getDispatcherById" parameterType="java.lang.Long">
         select * from Dispatcher
         join Person on Person.id = Dispatcher.person_id

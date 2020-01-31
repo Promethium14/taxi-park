@@ -1,6 +1,14 @@
-import model.Booking;
+import dao.*;
+import dao.MyBatisImpl.*;
+import model.*;
 import service.BookingService;
 import util.InfoGenerator;
+import util.JSONUtil;
+import util.LoggerUtil;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Executor {
 
@@ -8,33 +16,77 @@ public class Executor {
 
     public static void main(String[] args) {
 
-        Booking booking = InfoGenerator.generateBooking();
+        clearDB();
+
+        JSONUtil<Booking> bookingJSONUtil = new JSONUtil<>();
         BookingService bookingService = new BookingService();
-        bookingService.saveBooking(booking);
 
-//        List<Driver> drivers = new UserService().getDrivers();
-//
-//        for (Driver driver: drivers) {
-//            LoggerUtil.LOGGER.info("Driver: " + driver.getName() + " -- " + driver.getLicense().getDateOfIssue());
+        List<Booking> bookingsFromJson = bookingJSONUtil.fromJSONFile("data/bookings.json");
+
+//        List<Booking> bookings = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            Booking booking = InfoGenerator.generateBooking();
+//            bookingService.saveBooking(booking);
+//            bookings.add(booking);
 //        }
-//
-//        JacksonJsonImpl<Driver> driverJacksonJson = new JacksonJsonImpl<>();
-//
-//        driverJacksonJson.toJsonFile("data/drivers.json", drivers);
-//
-//        List<Driver> fromJson = driverJacksonJson.fromJsonFile("data/drivers.json");
-//
-//        System.out.println(fromJson);
 
+        for (Booking booking : bookingsFromJson) {
+            bookingService.saveBooking(booking);
+        }
 
+        List<Booking> dbBookings = bookingService.getAllBookings();
 
-//        Gson json = new Gson();
-//        String driversStr = json.toJson(drivers);
-//        String addressesStr = json.toJson(addresses);
-//        String carsStr = json.toJson(cars);
-//
-//        FileUtil.toNewFile("data/drivers.json", driversStr);
-//        FileUtil.toNewFile("data/addresses.json", addressesStr);
-//        FileUtil.toNewFile("data/cars.json", carsStr);
+        for (Booking booking: dbBookings) {
+            LoggerUtil.LOGGER.info("Booking: " + booking.getId());
+        }
+
+        bookingJSONUtil.toJsonFile("data/bookings" +
+                new Timestamp(System.currentTimeMillis()) + ".json", dbBookings);
+    }
+
+    private static void clearDB() {
+
+        IBookingDAO bookingDAO = new BookingDAO();
+        ICarDAO carDAO = new CarDAO();
+        IClientDAO clientDAO = new ClientDAO();
+        IDispatcherDAO dispatcherDAO = new DispatcherDAO();
+        IDriverDAO driverDAO = new DriverDAO();
+        IDriverLicenseDAO licenseDAO = new DriverLicenseDAO();
+        IOfficeDAO officeDAO = new OfficeDAO();
+        IAddressDAO addressDAO = new AddressDAO();
+
+        List<Booking> bookings = bookingDAO.getBooking();
+        List<Car> cars = carDAO.getCar();
+        List<Client> clients = clientDAO.getClient();
+        List<Dispatcher> dispatchers = dispatcherDAO.getDispatcher();
+        List<Driver> drivers = driverDAO.getDriver();
+        List<DriverLicense> licenses = licenseDAO.getDriverLicense();
+        List<Office> offices = officeDAO.getOffice();
+        List<Address> addresses = addressDAO.getAddress();
+
+        for (Booking entity: bookings) {
+            bookingDAO.deleteBooking(entity);
+        }
+        for (Car entity: cars) {
+            carDAO.deleteCar(entity);
+        }
+        for (Client entity: clients) {
+            clientDAO.deleteClient(entity);
+        }
+        for (Dispatcher entity: dispatchers) {
+            dispatcherDAO.deleteDispatcher(entity);
+        }
+        for (Driver entity: drivers) {
+            driverDAO.deleteDriver(entity);
+        }
+        for (DriverLicense entity: licenses) {
+            licenseDAO.deleteDriverLicense(entity);
+        }
+        for (Office entity: offices) {
+            officeDAO.deleteOffice(entity);
+        }
+        for (Address entity: addresses) {
+            addressDAO.deleteAddress(entity);
+        }
     }
 }

@@ -1,7 +1,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.IClientDAO">
-    <resultMap id="client" type="model.Client" extends="dao.IPersonDAO.person"/>
+    <resultMap id="client" type="model.Client" extends="dao.IPersonDAO.person">
+        <id property="id" column="id"/>
+    </resultMap>
     <select id="getClientById" parameterType="java.lang.Long">
         select * from Client
         join Person on Person.id = Client.person_id

@@ -51,7 +51,6 @@ public class InfoGenerator {
     }
 
     public static Date generateRandomDate() {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
         StringBuilder dateString = new StringBuilder();
         int day = random.nextInt(30);
         int month = new Random().nextInt(11);
@@ -63,11 +62,6 @@ public class InfoGenerator {
         dateString.append(day+1);
         System.out.println(dateString.toString());
         return Date.valueOf(dateString.toString());
-//        try {
-//            return (java.sql.Date) dateFormat.parse(dateString.toString());
-//        } catch (ParseException parseException) {
-//            return null;
-//        }
     }
 
     public static Address generateAddress() {

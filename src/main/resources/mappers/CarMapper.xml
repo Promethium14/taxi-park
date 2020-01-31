@@ -1,7 +1,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.ICarDAO">
-    <resultMap id="car" type="model.Car"/>
+    <resultMap id="car" type="model.Car">
+        <id column="id" property="id"/>
+        <result column="brand" property="brand"/>
+        <result column="model" property="model"/>
+        <result column="color" property="color"/>
+        <result column="number" property="number"/>
+    </resultMap>
     <select id="getCarById" parameterType="java.lang.Long">
         select * from Car where id = #{id}
     </select>

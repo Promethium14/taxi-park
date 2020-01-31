@@ -1,12 +1,25 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.IBookingDAO">
-    <resultMap id="booking" type="model.Booking"/>
+    <resultMap id="booking" type="model.Booking">
+        <id column="id" property="id"/>
+        <result property="date" column="date"/>
+        <association property="address" resultMap="dao.IAddressDAO.address"/>
+        <association property="driver" resultMap="dao.IDriverDAO.driver"/>
+        <association property="dispatcher" resultMap="dao.IDispatcherDAO.dispatcher"/>
+        <association property="client" resultMap="dao.IClientDAO.client"/>
+        <association property="car" resultMap="dao.ICarDAO.car"/>
+    </resultMap>
     <select id="getBookingById" parameterType="java.lang.Long">
         select * from Booking where id = #{id}
     </select>
     <select id="getBooking" resultMap="booking">
         select * from Booking
+        join Address on Booking.address_id = Address.id
+        join Driver on Booking.driver_id = Driver.id
+        join Dispatcher on Booking.dispatcher_id = Dispatcher.id
+        join Car on Booking.car_id = Car.id
+        join Client on Booking.Client_id = Client.id
     </select>
     <insert id="insertBooking" parameterType="model.Booking">
         insert into Booking(id, date, address_id, car_id, driver_id, dispatcher_id, client_id)
